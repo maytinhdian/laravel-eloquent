@@ -110,9 +110,26 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update($id)
     {
-        //
+        // Tạo đối tượng của bản ghi hiện tại
+        $post=Post::find($id);
+        // $post->title = 'Tieu de updated';
+        // $post->save();
+        // dd($post);
+
+        $dataUpdate=[
+            'title'=>'Bài viết update 22',
+            'content'=>'Nội dung update 22 ',
+        ];
+        // $status = $post->update($dataUpdate);
+        // $status = Post::where('id',$id)->update($dataUpdate);
+        // dd($status);
+
+        $post = Post::updateOrCreate([
+            'id'=>17
+        ],$dataUpdate);
+        dd($post);
     }
 
     /**
