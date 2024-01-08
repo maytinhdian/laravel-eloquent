@@ -18,3 +18,11 @@
 - protected $attributes = [
     'status'=>0,
 ];
+
+# Query Eloquent Model
+
+## Lấy tất cả bản ghi
+
+- TenModel::all();
+- TenModel:chunk --> Xử lý dữ liệu lớn
+- TenModel:cusor --> Xử lý dữ liệu lớn

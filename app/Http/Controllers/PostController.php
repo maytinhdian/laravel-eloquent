@@ -15,12 +15,38 @@ class PostController extends Controller
         // $allPosts = Post::all();
         // dd($allPosts);
 
-        //Create new Post 
-        $post = new Post;
-        $post->title='Bai viet 3';
-        $post->content='Noi dung 3 ';
-        $post->status = 1;
-        $post->save();
+        // //Create new Post
+        // $post = new Post;
+        // $post->title='Bai viet 3';
+        // $post->content='Noi dung 3 ';
+        // $post->status = 1;
+        // $post->save();
+
+        echo '<h2>Query Eloquent Model</h2>';
+        // $allPosts = Post::all();
+
+        // if ($allPosts->count()>0) {
+        //     foreach ($allPosts as $item) {
+        //         echo $item->title.'</br>';
+        //     }
+        // }
+
+        // $detail=Post::find(1);
+        // dd($detail);
+
+        //Sử dụng query builder
+
+        // $activePosts = DB::table('posts')->where('status',1)->get();
+        // dd($activePosts);
+
+        // $activePosts=Post::where('status',1)->get();
+        // dd($activePosts);
+
+        $allPosts = Post::all();
+        $activePosts = $allPosts->reject(function ($post) {
+            return $post->status == 0; //boolean
+        });
+        dd($activePosts);
     }
 
     /**
