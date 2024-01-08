@@ -9,9 +9,10 @@ class Post extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $attributes = [
         'status' => 0,
     ];
+    protected $fillable =['title','content','status'];
 }

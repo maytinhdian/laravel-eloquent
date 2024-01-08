@@ -62,7 +62,33 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dataInsert=[
+            'title'=>'Cảnh sát đốt lửa chống muỗi khi tìm nghi phạm giết nhân viên quán cà phê',
+            'content'=>'Cảnh sát đốt lửa chống muỗi khi tìm nghi phạm giết nhân viên quán cà phê',
+            'status'=>1,
+        ];
+
+        // $post=Post::create($dataInsert);
+        // echo 'Id vừa insert: '.$post->id;
+
+        // $insertStatus = Post::insert($dataInsert);
+        // dd($insertStatus);
+
+        // $post=Post::firstOrCreate([
+        //     'id'=>1
+        // ],$dataInsert);
+        // dd($post);
+
+        $check = true ;
+        $post = new Post;
+        $post->title='Bai viet moi moi';
+        $post ->content='Noi dung moi ';
+
+        if ($check) {
+            $post->status=1;
+        }
+        $post->save();
+        echo 'Id vua insert: '.$post->id;
     }
 
     /**

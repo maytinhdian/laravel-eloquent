@@ -21,7 +21,7 @@
 
 # Query Eloquent Model
 
-## Lấy tất cả bản ghi
+## Phuong thức
 
 - TenModel::all();
 - TenModel:chunk --> Xử lý dữ liệu lớn
